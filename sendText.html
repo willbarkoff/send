@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receive Text</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+    <div class="section">
+        <div class="container">
+            <div class="block">
+                <button class="button is-info" id="button">Copy to clipboard</button>
+            </div>
+            
+            <pre><code id="text">{{.}}</code></pre>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector("#button").addEventListener("click", () => {
+            navigator.clipboard.writeText(document.querySelector("#text").textContent)
+            document.querySelector("#button").textContent = "Copied."
+        })
+    </script>
+</body>
+</html>
